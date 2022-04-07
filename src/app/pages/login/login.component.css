@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.container{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(30,100,125,1) 85%);
+
+}
+
+.image{
+    width: 100%;
+    max-width: 500px;
+    height: 460px;
+    box-shadow:
+    1px 0.9px 0.8px -2px rgba(0, 0, 0, 0.012),
+    2.1px 2px 1.8px -2px rgba(0, 0, 0, 0.017),
+    3.6px 3.3px 3px -2px rgba(0, 0, 0, 0.021),
+    5.4px 5px 4.6px -2px     rgba(0, 0, 0, 0.024),
+    7.8px 7.1px 6.6px -2px rgba(0, 0, 0, 0.027),
+    11px 10.1px 9.4px -2px rgba(0, 0, 0, 0.03),
+    15.6px 14.3px 13.3px -2px rgba(0, 0, 0, 0.034),
+    22.6px 20.8px 19.3px -2px rgba(0, 0, 0, 0.038),
+    34.9px 32.1px 29.8px -2px rgba(0, 0, 0, 0.045),
+    62px 57px 53px -2px rgba(0, 0, 0, 0.06)
+    ;
+    background-color: black;
+}
+
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    max-width: 435px;
+    height: 358px;
+    padding: 0 15px;
+    background-color: white ;
+}
+
+
+.login-form h2{
+    color: #1e647d;
+}
+
+.login-form a{
+    margin-top: 15px;
+    color: #1e647d;
+}
+
+.login-form button{
+    color: white;
+    width: 100%;
+    height: 50px;
+    background-color: #1e647d;
+    border: none;
+}
+
+
+.input{
+    display: flex;
+    width: 100%;
+    margin: 7px 0;
+    flex-direction: column;
+}
+
+
+
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.image .text{
+    display: none;
+}
+
+
+
+@media only screen and (min-width:990px) {
+    .container{
+        height: 100vh;
+        flex-direction: row;
+    }
+
+    .login-form{
+        position: relative;
+        right: 125px;
+        box-shadow:
+        1px 0.9px 0.8px -2px rgba(0, 0, 0, 0.012),
+        2.1px 2px 1.8px -2px rgba(0, 0, 0, 0.017),
+        3.6px 3.3px 3px -2px rgba(0, 0, 0, 0.021),
+        5.4px 5px 4.6px -2px rgba(0, 0, 0, 0.024),
+        7.8px 7.1px 6.6px -2px rgba(0, 0, 0, 0.027),
+        11px 10.1px 9.4px -2px rgba(0, 0, 0, 0.03),
+        15.6px 14.3px 13.3px -2px rgba(0, 0, 0, 0.034),
+        22.6px 20.8px 19.3px -2px rgba(0, 0, 0, 0.038),
+        34.9px 32.1px 29.8px -2px rgba(0, 0, 0, 0.045),
+        62px 57px 53px -2px rgba(0, 0, 0, 0.06)
+        ;
+    }
+
+    .image{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .image .text{
+        display: block;
+        position: absolute;
+        width: 325px;
+        margin-left: 14px;
+        color: white;
+        z-index: 1;
+    }
+
+
+    .image .text h1{
+        font-family: 'Send Flowers', cursive;
+        font-size: 50px;
+        line-height: 4px;
+    }
+
+
+    .image .text h2{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+    }
+    
+}

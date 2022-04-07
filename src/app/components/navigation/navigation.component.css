@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+
+body{
+    display: contents;
+}
+
+/* primary color #3B479D */
+
+.header{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 90px;
+    background-color: #1e647d  ;
+    position: fixed ;
+    z-index: 2;
+    /* margin: 4px; */
+}
+
+.brand{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+}
+
+.brand p{
+    margin:0 12px;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Send Flowers', cursive;
+    color: #ffffff;
+}
+
+nav{
+    position:absolute;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+nav a{
+    color: #ffffff;
+    margin: 0px 15px;
+    padding: 7px;
+    height: 15px;
+    border-radius: 0.27rem;
+    text-decoration: none;
+}
+
+nav a:hover{
+    background-color: #ffffff;
+    color: black;
+    transition: 0.5s;
+}
+
+.sandwich-menu{
+    display: none;
+}   
+
+#check{
+    display: none;
+}
+
+
+@media only screen and (max-width:990px) {
+    .sandwich-menu{
+        display: block;
+        position: absolute;
+        right: 50px;
+    }
+
+    nav{
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1e647d;
+        left: 0;
+        top: 89px;
+        width: 100%;
+        height: 100vh;
+        transition: all .5s;
+    }
+
+    nav a{
+        border: none;
+        padding: 25px 0;
+    }
+
+    .nav-hide{
+        height: 0;
+        left: 0;
+    }
+
+    .nav-hide a{
+        display: none;
+    }
+
+}
+
