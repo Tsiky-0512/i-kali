@@ -3,6 +3,7 @@ const dbConfig = {
     PROJECT: "i-kali",
     PASSWORD: "hqYJMgy5HcIQFgxY",
     DB: "myFirstDatabase",
+    CLUSTER: "cluster0.ln4co",
     retryWrite: true
 }
 

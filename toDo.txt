@@ -1,0 +1,22 @@
+user:
+- S'inscrire --ok
+- Connexion --ok
+
+Plats :
+- commander plats
+- Voir commande plats par resto
+- gestion visibilité plats
+- compte plats
+- commande plats [multicritères]
+- livraison plats
+
+
+Restaurants:
+- CRUD
+- Recherche multicritères
+
+
+Livreur:
+- CRUD
+- Recherche multicritères
+ 
