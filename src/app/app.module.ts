@@ -10,6 +10,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { BannerComponent } from './components/banner/banner.component';
 import { ProductComponent } from './components/product/product.component';
 import { LoginComponent } from './pages/login/login.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { SaveUserComponent } from './components/save-user/save-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,17 @@ import { LoginComponent } from './pages/login/login.component';
     NavigationComponent,
     BannerComponent,
     ProductComponent,
-    LoginComponent
+    LoginComponent,
+    InscriptionComponent,
+    SaveUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

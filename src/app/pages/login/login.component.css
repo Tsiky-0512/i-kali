@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-.container{
+._container{
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -91,7 +91,7 @@
 
 
 @media only screen and (min-width:990px) {
-    .container{
+    ._container{
         height: 100vh;
         flex-direction: row;
     }
@@ -116,7 +116,7 @@
     .image{
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     .image .text{
@@ -130,15 +130,15 @@
 
 
     .image .text h1{
-        font-family: 'Send Flowers', cursive;
-        font-size: 50px;
-        line-height: 4px;
+        font-family: 'Send Flowers', cursive !important;
+        font-size: 50px !important;
+        line-height: 50px !important;
     }
 
 
     .image .text h2{
-        font-family: 'Poppins', sans-serif;
-        font-size: 15px;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 15px !important;
     }
     
 }

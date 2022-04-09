@@ -10,7 +10,7 @@ body{
 .banner{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     background-color: black;
     position: relative;
@@ -38,7 +38,7 @@ body{
 .banner .text h1{
     font-family: 'Send Flowers', cursive;
     font-size: 60px;
-    line-height: 0;   
+    line-height: 60px;  
 }
 
 .banner .text p{
