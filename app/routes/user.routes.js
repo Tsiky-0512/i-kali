@@ -1,9 +1,9 @@
-const controller = require("../controllers/auth.controller.js");
+const controller = require("../controllers/user.controller.js");
+const { authJwt } = require("../middleware");
 
 module.exports = function (app) {
-    app.post("/auth/user",controller.save);
-    app.get("/auth/user",controller.find);
-    app.put("/auth/user",controller.update);
-    app.delete("/auth/user",controller.delete);
-    app.get("auth/user/signout",controller.signout);
+    app.post("/auth/user",[authJwt.verifyToken,authJwt.isAdmin,authJwt.isActivate],controller.save);
+    app.get("/auth/user",[authJwt.verifyToken,authJwt.isActivate],controller.find);
+    app.put("/auth/user",[authJwt.verifyToken,authJwt.isActivate],controller.update);
+    app.delete("/auth/user",[authJwt.verifyToken,authJwt.isActivate],controller.delete);
 }

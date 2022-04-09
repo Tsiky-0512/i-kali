@@ -14,8 +14,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required:true
   },
+  ville: {
+    type: String,
+  },
+  contact: {
+    type: String,
+    required:true
+  },
   role: {
     type: String,
+    enum:['admin','restaurant','livreur','client'],
     required:true
   },
   code:{

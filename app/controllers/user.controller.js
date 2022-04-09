@@ -1,8 +1,11 @@
 const User = require("../models/user.model.js");
+const bcrypt = require("bcryptjs");
+
 
 exports.save = async (request,response) =>{
     const user = new User(request.body);
-    try {
+    user.password = bcrypt.hashSync(user.password, 8);
+    try { 
       await user.save();
       response.status(200).send("User inserted!");
     } catch (error) {
@@ -12,7 +15,7 @@ exports.save = async (request,response) =>{
 
 exports.find = async (request,response) =>{
   try {
-    const doc = await User.findOne();
+    const doc = await User.findOne({_id:request.userId});
     if (doc instanceof User){
         return response.status(200).send(doc);
     } 
@@ -24,7 +27,7 @@ exports.find = async (request,response) =>{
 
 exports.update = async (request,response) =>{
   try {
-    const result = await User.findOneAndUpdate({_id:request.body._id}, request.body, {
+    const result = await User.findOneAndUpdate({_id:request.userId}, request.body, {
       returnOriginal: false
     });
     response.status(200).send(result);
@@ -35,9 +38,12 @@ exports.update = async (request,response) =>{
 
 exports.delete = async (request,response) =>{
   try {
-    await User.deleteOne({_id:request.body._id});
+    await User.deleteOne({_id:request.userId});
     response.status(200).send("Deleted completed")
   } catch (error) {
     response.status(500).send(error);
   }
 }
+
+
+

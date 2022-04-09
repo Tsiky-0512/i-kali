@@ -7,14 +7,13 @@ const jwt = require("jsonwebtoken");
 const ROLES = []
 
 
-
-
 // inscription -------------------------------------------------
 // generate code 
 // crypt your password
 // sendMail
 
 exports.inscription = async (request,response) => {
+  request.body.role = "client";
   const user = new User(request.body);
   user.password = bcrypt.hashSync(user.password, 8);
   try {
@@ -45,13 +44,10 @@ exports.verifyEmail = async (request,response) => {
     if (!user && !(user.code == ""+request.code)) return response.status(400).send("Code incorrect!");;
     user.activate = 1;
     user.save();
-    const token = jwt.sign({ id: user._id }, config.secret, {
+    const token = jwt.sign({ id: user._id,role:user.role,activate:user.activate }, config.secret, {
       expiresIn: 86400, // 24 hours
     });
-    request.session.token = {
-      token:token,
-      role:user.role
-    };
+    request.session.token = token;
     const data = {
       user:user,
       token:token
@@ -78,13 +74,10 @@ exports.login = async (request,response) => {
       user.password
     );
     if (!passwordIsValid) return response.status(404).send("Mot de passe incorrecte!");
-    const token = jwt.sign({ id: user._id }, config.secret, {
+    const token = jwt.sign({ id: user._id,role:user.role ,activate:user.activate }, config.secret, {
       expiresIn: 86400, // 24 hours
     });
-    request.session.token = {
-      token:token,
-      role:user.role
-    };
+    request.session.token = token
     const data = {
       user,
       token:token

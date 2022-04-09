@@ -1,17 +1,37 @@
-user:
+user: [idUser,nomUser,email,contact,role,activate]
 - S'inscrire --ok
 - Connexion --ok
 
-Plats :
+Plats  [idPlats,nomPlats,Categorie,prix,idRestaurants]:
+Commande [idUser, idPlats, Prix Unitaire ,Qte ,Montant, Lieu de Livraison,date de commande];
+Livraison[idLivraison,idCommande,idUser,idLivreur,Date,etat]
+
+User:
+   - crud User [admin]
+   - save User client [*]
+   - update User client[*]
+   - find One User client[*]
+   - delete One User client[*]
+------------ok tester
+
+- plats 
+	- crud [Restaurant] Create ok , Read ok  
+
+-----------ok
 - commander plats
-- Voir commande plats par resto
-- gestion visibilité plats
+	- insert commande ---- ok  
+	- liste commande par Client avec etat de livraison [commande, plat,restaurant,user] --ok
+
+- 
+	
+- Voir commande plats par resto -- ok
+- gestion visibilité plats -- ok
 - compte plats
 - commande plats [multicritères]
 - livraison plats
 
 
-Restaurants:
+Restaurants [idRestaurants,nomRestaurants,ville,email,contact]:
 - CRUD
 - Recherche multicritères
 
