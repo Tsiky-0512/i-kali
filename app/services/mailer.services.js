@@ -144,7 +144,7 @@ exports.mail = async (to,code) => {
                       <tr>
                         <td align="center" valign="top" style="padding: 36px 24px;">
                           <a href="#" target="_blank" style="display: inline-block;">
-                            <img src="https://lh4.googleusercontent.com/g--j6bqgWk1xYF_yQrsIGBv_rb-lPZfmHZoemvt1MFlv4EfQKCBzPKc3qoBt6RoWQBpmQPZgrqZVh9U3pUO0=w1366-h578" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+                            <img src="https://drive.google.com/uc?id=1_9535QNJkUD5tTSNSmoBbVk47I90iEqb" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
                           </a>
                         </td>
                       </tr>

@@ -21,7 +21,11 @@ exports.inscription = async (request,response) => {
     user.code = ""+code;
     await user.save();
     await mailer.mail("tsiky.rasolofomanana@gmail.com",code);
-    response.status(200).send("inscription finished!");
+    response.status(200).send({
+	status:200,
+	message:"inscription finished!",
+	data:{}
+	});
   } catch (error) {
     response.status(500).send(error);
   }
@@ -79,7 +83,8 @@ exports.login = async (request,response) => {
     });
     request.session.token = token
     const data = {
-      user,
+	status:200,
+      user:user,
       token:token
     }
     response.status(200).send(data);

@@ -5,8 +5,8 @@ const config = require("../config/auth.config.js");
 verifyToken = async (req,res,next) =>{
 
     try {
-        let token = req.session.token;
-
+        let token = req.headers.token;
+	
         if (!token) {
             return res.status(403).send({
                message: "No token provided!",
