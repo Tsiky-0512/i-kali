@@ -1,6 +1,6 @@
 <div class='product'>
     <div class='product__title'>
-        <p>PHO RESTO</p>
+        <p>{{data.restaurant_details.username}}</p>
     </div>
     <div class='product__separate'>
     </div>
@@ -10,14 +10,14 @@
         </picture>
     </div>
     <div class='product__bottom'>
-        <h2>Frity PACK</h2>
-        <h3>Snack</h3>
-        <p>4000 Ariary</p>
+        <h2>{{camelize(data.nom)}}</h2>
+        <h3>{{camelize(data.categorie)}}</h3>
+        <p>{{toMoney(data.prix)}}</p>
     </div>
     <div class='product__cta'> 
-        <div onClick={cta.shopNowClick}>
+        <div>
             <img src="/assets/icon/shop.svg" alt="shop" />
-            <span class='cta__have-cta'>Ajouter Panier</span>
+            <span class='cta__have-cta' (click)="openDialog(data)">Ajouter Panier</span>
         </div>
     </div>
 </div>

@@ -1,4 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+
+
 .list-product{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1024px;
+}
+
+main{
+    position: relative;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    padding: 10px 0 ;
+}
+
+.title h2{
+    color: #1e647d;
+    font-family:  'Poppins', sans-serif;
+}
+
+.separate{
+    height: 2px;
+    width: 250px;
+    margin: 5px 0;
+    background-color: #1e647d;
 }

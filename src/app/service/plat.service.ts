@@ -39,4 +39,10 @@ export class PlatService {
   }
 
 
+  listComplet(filter:any){
+    const options = this.tools.formOptionJSON(true);
+    return this.http.post(api+"/plat/list/complet",filter,options)
+  }
+
+
 }

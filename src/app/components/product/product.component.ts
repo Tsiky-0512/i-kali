@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalPanierComponent } from '../modal-panier/modal-panier.component';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
-  constructor() { }
+  @Input() data:any = {};
+    
+  constructor(
+    private dialog:MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  camelize(str:string) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  toMoney(number:number){
+    return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$& ') + " Ar";
+  }
+
+  openDialog(data:any){
+    const dialogRef = this.dialog.open(ModalPanierComponent, {
+      width: '60%',
+      data: data,
+    });
+
   }
 
 }
