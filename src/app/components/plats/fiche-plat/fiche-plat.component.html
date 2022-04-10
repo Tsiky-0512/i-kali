@@ -1,0 +1,50 @@
+<div class="container">
+    <div>
+        <h1 class="text-center" style="color: #1e647d;">Fiche Plats</h1>
+    </div>
+    <div>
+        <div class="form-item">
+            <div class="label">
+                <label>Nom :</label>  
+            </div>
+            <div>
+                <p>{{data.nom}}</p>
+            </div>
+        </div>
+        <div   class="form-item">
+            <div class="label">
+                <label>Catégorie :</label>  
+            </div>
+            <div>
+                <p>{{data.categorie}}</p>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Prix :</label>  
+            </div>
+            <div>
+                <p>{{data.prix}}</p>
+                
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Visibilité :</label>  
+            </div>
+            <div *ngIf="data.visibilite == 1">
+                <p *ngIf="data.visibilite == 1">Visible</p>
+                <p *ngIf="data.visibilite != 1">Invisible</p>
+            </div>
+        </div>
+        <div *ngIf="loading" class="spinn-content">
+            <div class="spinner-border  spinn" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div *ngIf="!loading"  class="button">
+            <button class="btn btn-warning mx-1" (click)="modifier()" >Modifier</button>
+            <button class="btn btn-danger"  (click)="supprimer()">Supprimer</button>
+        </div>
+    </div>
+</div>

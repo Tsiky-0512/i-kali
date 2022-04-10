@@ -6,30 +6,33 @@
         </div>
         <img src="/assets/image/image-login.jpg" alt="">
     </div>
-    <div class="login-form">
+    <form [formGroup]="formulaire_Control" class="login-form">
         <h2>Connectez - vous</h2>
-        <mat-form-field class="example-full-width input" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Ex. pat@example.com">
-            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-            </mat-error> -->
-        </mat-form-field>
-        <mat-form-field class="example-full-width input" appearance="fill">
-            <mat-label>Password</mat-label>
-            <input type="email" matInput placeholder="Ex. pat@example.com">
-            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-            </mat-error> -->
-        </mat-form-field>
+        <div   class="form-item">
+            <div class="label">
+                <label>email :</label>  
+            </div>
+            <div>
+                <input formControlName="email" class="form-control" type="text" name="object" placeholder="Entrez votre email" required>
+            </div>
+        </div>
+        <div   class="form-item">
+            <div class="label">
+                <label>Password :</label>  
+            </div>
+            <div>
+                <input formControlName="password" class="form-control" type="password" name="object" placeholder="Entrez votre Mot de passe" required>
+            </div>
+        </div>
        
-        <button type="submit">Connexion</button>
-        <a  href="">Inscription</a>
-    </div>
+        <div *ngIf="loading" class="spinn-content">
+            <div class="spinner-border  spinn" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        
+        <button  *ngIf="!loading" type="submit" (click)="controlValue()">Connexion</button>
+        <a  *ngIf="!loading" href="#" (click)="redirectToSign()">Inscription</a>
+        
+    </form>
 </div>

@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToolsService } from 'src/app/service/tools.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +10,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class NavigationComponent implements OnInit {
   @ViewChild("nav") nav?:ElementRef;
 
-  constructor() { }
+  constructor(
+    private tools:ToolsService,
+    private router:Router
+  ) { }
 
   
   menuToogle() {
@@ -18,6 +23,11 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    this.tools.logOut();
+    this.router.navigate(['/router-handler']);
   }
 
 }

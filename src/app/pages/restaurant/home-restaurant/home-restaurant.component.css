@@ -1,0 +1,40 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(243 243 243);
+    width: 100%;
+    height: 100vh;
+}
+
+.page{
+    width: 85%;
+    padding: 10px 25px;
+    margin: 5px;
+    background-color: white;
+    box-shadow:
+    1px 0.9px 0.8px -2px rgba(0, 0, 0, 0.012),
+    2.1px 2px 1.8px -2px rgba(0, 0, 0, 0.017),
+    3.6px 3.3px 3px -2px rgba(0, 0, 0, 0.021),
+    5.4px 5px 4.6px -2px rgba(0, 0, 0, 0.024),
+    7.8px 7.1px 6.6px -2px rgba(0, 0, 0, 0.027),
+    11px 10.1px 9.4px -2px rgba(0, 0, 0, 0.03),
+    15.6px 14.3px 13.3px -2px rgba(0, 0, 0, 0.034),
+    22.6px 20.8px 19.3px -2px rgba(0, 0, 0, 0.038),
+    34.9px 32.1px 29.8px -2px rgba(0, 0, 0, 0.045),
+    62px 57px 53px -2px rgba(0, 0, 0, 0.06)
+    ;
+}
+
+@media screen and (min-width:990px) {
+    .content{
+        flex-direction: row;
+    }
+    
+        
+}

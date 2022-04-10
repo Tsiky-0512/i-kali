@@ -3,21 +3,21 @@
         <h1 class="text-center">Inscription</h1>
     </header>
     <main>
-        <form method="post" action="" >
+        <form [formGroup]="formulaire_Control" method="post" action="" >
             <div class="form-item">
                 <div class="label">
                     <label>Nom :</label>  
                 </div>
                 <div>
-                    <input class="form-control" type="text" name="object" placeholder="Entrez votre nom" required>
+                    <input formControlName="username" class="form-control" type="text" name="object" placeholder="Entrez votre nom" required>
                 </div>
             </div>
-            <div   class="form-item">
+            <div class="form-item">
                 <div class="label">
                     <label>email :</label>  
                 </div>
                 <div>
-                    <input class="form-control" type="text" name="object" placeholder="Entrez votre email" required>
+                    <input formControlName="email" class="form-control" type="text" name="object" placeholder="Entrez votre email" required>
                 </div>
             </div>
             <div   class="form-item">
@@ -25,7 +25,7 @@
                     <label>contact :</label>  
                 </div>
                 <div>
-                    <input class="form-control" type="text" name="object" placeholder="Entrez votre contact" required>
+                    <input formControlName="contact" class="form-control" type="text" name="object" placeholder="Entrez votre contact" required>
                 </div>
             </div>
             <div   class="form-item">
@@ -33,11 +33,13 @@
                     <label>Password :</label>  
                 </div>
                 <div>
-                    <input class="form-control" type="password" name="object" placeholder="Entrez votre Password" required>
+                    <input formControlName="password" class="form-control" type="password" name="object" placeholder="Entrez votre Password" required>
                 </div>
             </div>
-           
-            <button *ngIf="!loading" class="button">S'inscrire</button>
+    
+            <div class="form-item">
+                <button *ngIf="!loading" (click)="controlValue()" class="button">S'inscrire</button>
+            </div>
             <div *ngIf="loading" class="spinn-content">
                 <div class="spinner-border  spinn" role="status">
                     <span class="sr-only"></span>
