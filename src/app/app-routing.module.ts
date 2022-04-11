@@ -9,6 +9,7 @@ import { SaisiePlatComponent } from './components/plats/saisie-plat/saisie-plat.
 import { FichePlatComponent } from './components/plats/fiche-plat/fiche-plat.component';
 import { UpdatePlatComponent } from './components/plats/update-plat/update-plat.component';
 import { ListePlatComponent } from './components/plats/liste-plat/liste-plat.component';
+import { ListPanierComponent } from './components/panier/list-panier/list-panier.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path:'',
         component:HomeClientComponent
+      },
+      {
+        path:'panier',
+        component:ListPanierComponent
       }
     ]
   },

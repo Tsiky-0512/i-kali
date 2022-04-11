@@ -22,7 +22,8 @@ import { SaisiePlatComponent } from './components/plats/saisie-plat/saisie-plat.
 import { FichePlatComponent } from './components/plats/fiche-plat/fiche-plat.component';
 import { ListePlatComponent } from './components/plats/liste-plat/liste-plat.component';
 import { UpdatePlatComponent } from './components/plats/update-plat/update-plat.component';
-import { ModalPanierComponent } from './components/modal-panier/modal-panier.component';
+import { ModalPanierComponent } from './components/panier/modal-panier/modal-panier.component';
+import { ListPanierComponent } from './components/panier/list-panier/list-panier.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ModalPanierComponent } from './components/modal-panier/modal-panier.com
     ListePlatComponent,
     UpdatePlatComponent,
     ModalPanierComponent,
-    ModalPanierComponent
+    ModalPanierComponent,
+    ListPanierComponent
   ],
   imports: [
     BrowserModule,

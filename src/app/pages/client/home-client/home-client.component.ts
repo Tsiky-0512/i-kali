@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalPanierComponent } from 'src/app/components/modal-panier/modal-panier.component';
 import { PlatService } from 'src/app/service/plat.service';
 import { ToolsService } from 'src/app/service/tools.service';
 
@@ -17,7 +15,6 @@ export class HomeClientComponent implements OnInit {
   constructor(
     private tools:ToolsService,
     private platService:PlatService,
-    private dialog:MatDialog
   ) { }
 
   ngOnInit(): void {

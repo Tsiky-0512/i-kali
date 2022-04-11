@@ -32,7 +32,23 @@
                 <label>Quantité :</label>  
             </div>
             <div>
-                <input formControlName="prix" class="form-control" type="number" min="0" step="any" name="object" placeholder="Entrez le prix" required>
+                <input [(ngModel)]="qte" (keyup)="change()" class="form-control col-4" type="number" min="0" step="any" name="object" placeholder="Entrez le prix" required>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Montant :</label>  
+            </div>
+            <div>
+                <input class="form-control" [(ngModel)]="montant" type="number" min="0" step="any" name="object" readonly required>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Lieu  :</label>  
+            </div>
+            <div>
+                <input class="form-control" [(ngModel)]="lieu" placeholder="Veuillez saisisser le lieu sure" type="text" required>
             </div>
         </div>
         <div *ngIf="loading" class="spinn-content">
@@ -41,7 +57,7 @@
             </div>
         </div>
         <div *ngIf="!loading"  class="button">
-            <button class="btn btn-success mx-1" >Ajouter</button>
+            <button class="btn btn-success mx-1" (click)="ajouterPanier()" >Ajouter</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalPanierComponent } from '../modal-panier/modal-panier.component';
+import { ModalPanierComponent } from '../panier/modal-panier/modal-panier.component';
 
 @Component({
   selector: 'app-product',
