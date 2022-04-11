@@ -1,6 +1,9 @@
 const Plat = require("../models/plat.model");
 const { generateData } = require("../services/criteria.services");
 const mongoose = require("mongoose");
+const PlatRestaurant = mongoose.model("View_2",{},"PlatRestaurant");
+
+
 
 exports.save = async (request,response) =>{
     request.body.restaurant_id = request.userId;
@@ -22,7 +25,12 @@ exports.find = async (request,response) =>{
   try {
     request.body = generateData(request.body)
     console.log({restaurant:request.userId,...request.body});
-    const plat = await Plat.find({restaurant:request.userId,...request.body});
+    const plat = {};
+    if (request.role == "restaurant") {
+      plat = await Plat.find({restaurant:request.userId,...request.body});
+    }else{
+      plat = await Plat.find(request.body);
+    }
     if (plat[0] instanceof Plat){
         return response.status(200).send({
           status:200,
@@ -30,6 +38,19 @@ exports.find = async (request,response) =>{
         });
     } 
     return response.status(400).send("No data!")
+  } catch (error) {
+    response.status(500).send(error);
+  }
+}
+
+exports.findComplet = async (request,response) =>{
+  try {
+    request.body = generateData(request.body)
+    const plat = await PlatRestaurant.find(request.body);
+    return response.status(200).send({
+      status:200,
+      data:plat
+    });     
   } catch (error) {
     response.status(500).send(error);
   }
