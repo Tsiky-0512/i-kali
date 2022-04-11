@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use(express.static(__dirname + '/dist/m1p9mean-fitahiana'));
+app.use(express.static(__dirname + '/dist/i-kali'));
 
 
 app.get('/*', function(req,res) {
