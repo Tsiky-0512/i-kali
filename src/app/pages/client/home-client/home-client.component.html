@@ -1,0 +1,19 @@
+<div style="height: 100vh;overflow: scroll;">
+    <header>
+        <app-navigation></app-navigation>
+        <app-banner></app-banner>
+    </header>
+    <main>
+        <div class="title">
+            <h2 >Nos Produits</h2>
+        </div>
+        <div class="separate"></div>
+
+        <div class="list-product">
+            <app-product *ngFor="let item of data" [data]="item">
+            </app-product>
+        </div>
+
+    </main>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="_container">
+    <div class="image">
+        <div class="text">
+            <h1>i-kaly</h1>
+            <h2>Plateforme de commande et de livraison de "sakafo" express </h2>
+        </div>
+        <img src="/assets/image/image-login.jpg" alt="">
+    </div>
+    <form [formGroup]="formulaire_Control" class="login-form">
+        <h2>Connectez - vous</h2>
+        <div   class="form-item">
+            <div class="label">
+                <label>email :</label>  
+            </div>
+            <div>
+                <input formControlName="email" class="form-control" type="text" name="object" placeholder="Entrez votre email" required>
+            </div>
+        </div>
+        <div   class="form-item">
+            <div class="label">
+                <label>Password :</label>  
+            </div>
+            <div>
+                <input formControlName="password" class="form-control" type="password" name="object" placeholder="Entrez votre Mot de passe" required>
+            </div>
+        </div>
+       
+        <div *ngIf="loading" class="spinn-content">
+            <div class="spinner-border  spinn" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        
+        <button  *ngIf="!loading" type="submit" (click)="controlValue()">Connexion</button>
+        <a  *ngIf="!loading" href="#" (click)="redirectToSign()">Inscription</a>
+        
+    </form>
+</div>

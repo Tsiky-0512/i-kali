@@ -1,0 +1,24 @@
+<header class="header">
+    <div class="brand">
+        <img src="/assets/icon/restaurant.png" width="40" height="40" alt="logo">
+        <p class="brand__text">
+            i-kaly
+        </p>
+        <img src="/assets/icon/restaurant.png" width="40" height="40" alt="logo">
+    </div>
+    <div class="sandwich-menu">
+        <input type="checkbox" onclick="menuToogle()" id="check" >
+        <label for="check">
+            <img src="/assets/icon/menu.png" width="40" height="40" alt="menu">
+        </label>
+    </div>
+    <nav #nav class="nav-hide" id="nav">
+        <div *ngFor="let item of menu" style="display: contents;">
+            <a class="collapsible"  >{{item.nom}}</a>
+            <ul *ngIf="item.children.length !=0">
+                <li *ngFor="let i of item.children" [routerLink]="i.link">{{i.nom}}</li>
+            </ul>
+        </div>
+        <a (click)="logOut()">Déconnexion</a>
+    </nav>
+</header>

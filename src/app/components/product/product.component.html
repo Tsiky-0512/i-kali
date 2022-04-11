@@ -1,0 +1,23 @@
+<div class='product'>
+    <div class='product__title'>
+        <p>{{data.restaurant_details.username}}</p>
+    </div>
+    <div class='product__separate'>
+    </div>
+    <div class='product__packshot'>
+        <picture style="display: contents;" >
+            <img src="/assets/image/Frite.jpg" alt="frite" />
+        </picture>
+    </div>
+    <div class='product__bottom'>
+        <h2>{{camelize(data.nom)}}</h2>
+        <h3>{{camelize(data.categorie)}}</h3>
+        <p>{{toMoney(data.prix)}}</p>
+    </div>
+    <div class='product__cta'> 
+        <div>
+            <img src="/assets/icon/shop.svg" alt="shop" />
+            <span class='cta__have-cta' (click)="openDialog(data)">Ajouter Panier</span>
+        </div>
+    </div>
+</div>

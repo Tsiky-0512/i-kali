@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: black;
+    position: relative;
+    top: 90px;
+    height: 400px;
+}
+
+.banner__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.banner .text{
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 500px;
+    animation:  fadeIn 1s ease-in both;
+}
+
+.banner .text h1{
+    font-family: 'Send Flowers', cursive;
+    font-size: 60px;
+    line-height: 60px;  
+}
+
+.banner .text p{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width:990px) {
+    .banner{
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .banner .text{
+        text-align: center;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .banner .text p{
+        padding: 0 20px;
+
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}

@@ -1,0 +1,78 @@
+<div style="height: 100vh;overflow: scroll;">
+    <header>
+        <app-navigation></app-navigation>
+    </header>
+    <main>
+        <div class="title">
+            <h2 *ngIf="data.length==0">Panier vide</h2>
+            <h2 *ngIf="data.length!=0">Panier </h2>
+        </div>
+        <div class="separate"></div>
+
+        <div *ngIf="loading" class="spinn-content">
+            <div class="spinner-border  spinn" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div *ngIf="!loading && data.length !=0" class="content">
+            <div class="bar">
+                <div class="search">
+                    <img (click)="criteriaToogle()" src="/assets/icon/filter.png" id="filter" class="filter" width="20" height="20" alt="">
+                    <input type="text" class="input" placeholder="Search ...">  
+                    <img class="icon" src="/assets/icon/search.png" width="20" height="20" alt="search" >
+                </div>
+            </div>
+            <div #criteria class="criteria">
+                <select type="text" placeholder="">
+                    <option value="">Cycliste</option>
+                    <option value="">Bike</option>
+                    <option value="">Croos</option>
+                </select>
+                <select type="text" placeholder="">
+                    <option value="">Cycliste</option>
+                    <option value="">Bike</option>
+                    <option value="">Croos</option>
+                </select>
+                <select type="text" placeholder="">
+                    <option value="">Cycliste</option>
+                    <option value="">Bike</option>
+                    <option value="">Croos</option>
+                </select>
+                
+            </div>
+            <div class="table">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                          <th scope="col">Restaurant</th>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Catégorie</th>
+                          <th scope="col">Prix</th>
+                          <th scope="col">Qte</th>
+                          <th scope="col">Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of data;let i = index">
+                          <td><a (click)="toFiche(item)">{{camelize(item.restaurant_details.username)}}</a></td>
+                          <td><a (click)="toFiche(item)">{{camelize(item.nom)}}</a></td>
+                          <td>{{camelize(item.categorie)}}</td>
+                          <td>{{toMoney(item.prix)}}</td>
+                          <td>{{item.qte}}</td>
+                          <td>{{toMoney(item.montant)}}</td>
+                          <td>
+                              <mat-icon class="delete" (click)="delete(i)">delete</mat-icon>
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+                <div class="button">
+                    <button class="btn btn-success" (click)="commander()">Commander</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+

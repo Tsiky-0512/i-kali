@@ -1,0 +1,63 @@
+<div class="container">
+    <div>
+        <h3 class="text-center" style="color: #1e647d;">Ajouter Panier</h3>
+    </div>
+    <div>
+        <div class="form-item">
+            <div class="label">
+                <label>Nom :</label>  
+            </div>
+            <div>
+                <p>{{data.nom}}</p>
+            </div>
+        </div>
+        <div   class="form-item">
+            <div class="label">
+                <label>Catégorie :</label>  
+            </div>
+            <div>
+                <p>{{data.categorie}}</p>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Prix :</label>  
+            </div>
+            <div>
+                <p>{{data.prix}}</p>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Quantité :</label>  
+            </div>
+            <div>
+                <input [(ngModel)]="qte" (keyup)="change()" class="form-control col-4" type="number" min="0" step="any" name="object" placeholder="Entrez le prix" required>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Montant :</label>  
+            </div>
+            <div>
+                <input class="form-control" [(ngModel)]="montant" type="number" min="0" step="any" name="object" readonly required>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="label">
+                <label>Lieu  :</label>  
+            </div>
+            <div>
+                <input class="form-control" [(ngModel)]="lieu" placeholder="Veuillez saisisser le lieu sure" type="text" required>
+            </div>
+        </div>
+        <div *ngIf="loading" class="spinn-content">
+            <div class="spinner-border  spinn" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div *ngIf="!loading"  class="button">
+            <button class="btn btn-success mx-1" (click)="ajouterPanier()" >Ajouter</button>
+        </div>
+    </div>
+</div>
