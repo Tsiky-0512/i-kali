@@ -41,7 +41,10 @@ exports.find = async (request,response) =>{
     console.log(request.body);
 
     const commande = await CommandeComplet.aggregate([{$match:request.body}]);
-    return response.status(200).send(commande);     
+    return response.status(200).send({
+      data:commande,
+      status:200
+    });     
   } catch (error) {
     response.status(500).send(error); 
   }
