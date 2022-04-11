@@ -10,6 +10,7 @@ import { FichePlatComponent } from './components/plats/fiche-plat/fiche-plat.com
 import { UpdatePlatComponent } from './components/plats/update-plat/update-plat.component';
 import { ListePlatComponent } from './components/plats/liste-plat/liste-plat.component';
 import { ListPanierComponent } from './components/panier/list-panier/list-panier.component';
+import { CommandeListComponent } from './components/commande/commande-list/commande-list.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path:'panier',
         component:ListPanierComponent
+      },
+      {
+        path:'liste-commande',
+        component:CommandeListComponent
       }
     ]
   },

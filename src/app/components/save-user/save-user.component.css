@@ -40,6 +40,13 @@ h1{
     color: #1e647d !important;
 }
 
+.link__connexion{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
 
 @media only screen and (min-width:990px) {
     .form-item{

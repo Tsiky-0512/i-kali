@@ -18,4 +18,15 @@ export class CommandeService {
     const options = this.tools.formOptionJSON(true);
     return this.http.post(api+'/commande/multiple',data,options);
   }
+
+
+  listeCommande(){
+    const options = this.tools.formOptionJSON(true);
+    const data = {
+      user_id:this.tools.getUser()._id
+    }
+    console.log(data);
+    
+    return this.http.post(api+'/commande/list',data,options)
+  }
 }

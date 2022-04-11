@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommandeService } from 'src/app/service/commande.service';
+import { ToolsService } from 'src/app/service/tools.service';
 
 @Component({
   selector: 'app-commande-list',
@@ -7,15 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./commande-list.component.css']
 })
 export class CommandeListComponent implements OnInit {
-  data:any;
+  data:any = [];
   loading:boolean = false;
   criteria:any;
+  somme:number = 0;
   constructor(
-    private router:Router
-
+    private router:Router,
+    private commandeService:CommandeService,
+    private tools:ToolsService
   ) { }
 
   ngOnInit(): void {
+    this.initCommande();
   }
 
   camelize(str: string) {
@@ -32,5 +37,27 @@ export class CommandeListComponent implements OnInit {
 
   toFiche(data: any) {
     this.router.navigate(['/restaurant/fiche', JSON.stringify(data)]);
+  }
+
+  initCommande(){
+    const success = (response:any)=>{
+      if (response.status == 200) {
+        this.data = response.data;
+        console.log(this.data);
+        
+      }
+      this.loading = false;
+    }
+
+    const error = (response:any)=>{
+      console.log("error");
+      
+      this.tools.openSnackBar("Erreur durant la liste","OK");
+      this.loading = false;
+    }
+    this.loading = true;
+    console.log("huhu");
+    
+    this.commandeService.listeCommande().subscribe(success,error);
   }
 }

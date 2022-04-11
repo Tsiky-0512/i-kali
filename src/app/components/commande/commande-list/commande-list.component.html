@@ -4,8 +4,8 @@
     </header>
     <main>
         <div class="title">
-            <h2 *ngIf="data.length==0">Panier vide</h2>
-            <h2 *ngIf="data.length!=0">Panier </h2>
+            <h2 *ngIf="data.length==0">Commande vide</h2>
+            <h2 *ngIf="data.length!=0">Commande </h2>
         </div>
         <div class="separate"></div>    
 
@@ -46,26 +46,34 @@
                         <tr>
                           <th scope="col">Restaurant</th>
                           <th scope="col">Nom</th>
-                          <th scope="col">Catégorie</th>
                           <th scope="col">Prix</th>
                           <th scope="col">Qte</th>
                           <th scope="col">Montant</th>
+                          <th scope="col">Lieu de Livraison</th>
+                          <th scope="col">Etat</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of data;let i = index">
-                          <td><a (click)="toFiche(item)">{{camelize(item.restaurant_details.username)}}</a></td>
-                          <td><a (click)="toFiche(item)">{{camelize(item.nom)}}</a></td>
-                          <td>{{camelize(item.categorie)}}</td>
-                          <td>{{toMoney(item.prix)}}</td>
+                        <tr *ngFor="let item of data;let i = index;">
+                          <td><a (click)="toFiche(item)">{{camelize(item.plat_details.restaurant_details.username)}}</a></td>
+                          <td><a (click)="toFiche(item)">{{camelize(item.plat_details.nom)}}</a></td>
+                          <td>{{item.plat_details.prix}}</td>
                           <td>{{item.qte}}</td>
                           <td>{{toMoney(item.montant)}}</td>
+                          <td>{{camelize(item.lieudelivraison)}}</td>
+                          <td>{{camelize(item.etat)}}</td>
                         </tr>
+                        <tr >
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
                       </tbody>
-                </table>
-                <div class="button">
-                    <button class="btn btn-success" >Commander</button>
-                </div>
+                </table>    
             </div>
         </div>
 

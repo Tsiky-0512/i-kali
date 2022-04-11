@@ -45,4 +45,8 @@ export class ToolsService {
       return this._snackBar.open(message, msg);
   }
 
+  getUser(){
+      return JSON.parse(""+localStorage.getItem('user'));
+  }
+
 }
