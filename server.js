@@ -25,9 +25,9 @@ app.get('/',(req,res)=>{
 
 //routes
 require("./app/routes/auth.routes.js")(app); 
-// require("./app/routes/user.routes.js")(app); 
-// require("./app/routes/plat.routes.js")(app); 
-// require("./app/routes/commande.routes.js")(app); 
+require("./app/routes/user.routes.js")(app); 
+require("./app/routes/plat.routes.js")(app); 
+require("./app/routes/commande.routes.js")(app); 
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
