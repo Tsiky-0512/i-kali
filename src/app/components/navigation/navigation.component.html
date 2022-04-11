@@ -17,7 +17,7 @@
     <nav #nav class="nav-hide" id="nav">
         <a routerLink="/client" active>Acceuil</a>
         <a routerLink="/client/panier"  [matBadge]="badgePanier" matBadgeOverlap="large" matBadgeColor="accent">Panier</a>
-        <a href="">Commande</a>
-        <a href="#" (click)="logOut()">Déconnexion</a>
+        <a routerLink="/client/liste-commande">Commande</a>
+        <a  (click)="logOut()">Déconnexion</a>
     </nav>
 </div>

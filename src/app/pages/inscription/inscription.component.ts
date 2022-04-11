@@ -7,8 +7,8 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  state:number = 1;
-  email?:string = "tsiky.rasolofomanana+2@gmail.com";
+  state:number = 0;
+  email?:string ;
   constructor() { }
 
   ngOnInit(): void {

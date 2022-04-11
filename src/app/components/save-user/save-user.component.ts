@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { ToolsService } from 'src/app/service/tools.service';
 
@@ -18,7 +19,8 @@ export class SaveUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService:AuthService,
-    private tools:ToolsService
+    private tools:ToolsService,
+    private router:Router
   ) { 
     this.formulaire_Control = formBuilder.group({
       username:[this.data.username,Validators.required],
@@ -66,6 +68,10 @@ export class SaveUserComponent implements OnInit {
     }
     this.loading = true;
     this.authService.inscription(this.data).subscribe(success,error);
+  }
+
+  redirectToSign(){
+    this.router.navigate(['/login'])
   }
 
 }
