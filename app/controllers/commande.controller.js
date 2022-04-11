@@ -7,6 +7,9 @@ const { generateData } = require("../services/criteria.services");
 exports.save = async (request,response) =>{
     request.body.user = request.userId;
     console.log(request.body);
+    request.body.forEach(element => {
+      
+    });
     const commande = new Commande(request.body);
     try {
       await commande.save();
@@ -16,13 +19,31 @@ exports.save = async (request,response) =>{
     }
 }
 
+
+exports.saveMultiple = async (request,response) =>{
+    try {
+      await Commande.insertMany(request.body.data);
+      response.status(200).send(
+        {
+          status:200,
+          message:"commande inserted!"
+        } 
+      );
+    } catch (error) {
+      console.log(error);
+      response.status(500).send(error);
+    }
+}
+
 exports.find = async (request,response) =>{
   try {
     request.body = generateData(request.body);
+    console.log(request.body);
+
     const commande = await CommandeComplet.aggregate([{$match:request.body}]);
     return response.status(200).send(commande);     
   } catch (error) {
-    response.status(500).send(error);
+    response.status(500).send(error); 
   }
 }
 
