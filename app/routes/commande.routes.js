@@ -1,5 +1,5 @@
 const controller = require("../controllers/commande.controller.js");
-const { authJwt } = require("../middleware");
+const { authJwt } = require("../middleware/index.js");
 
 module.exports = function (app) {
     app.post("/commande",[authJwt.verifyToken,authJwt.isActivate],controller.save);
