@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommandeService } from 'src/app/service/commande.service';
 import { PanierService } from 'src/app/service/panier.service';
+import { ToolsService } from 'src/app/service/tools.service';
 
 @Component({
   selector: 'app-list-panier',
@@ -13,7 +15,9 @@ export class ListPanierComponent implements OnInit {
   loading: boolean = false;
   constructor(
     private router: Router,
-    private panierService:PanierService
+    private panierService:PanierService,
+    private tools:ToolsService,
+    private commandeService:CommandeService
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +46,37 @@ export class ListPanierComponent implements OnInit {
   delete(index:any){
     this.data.splice(index, 1);
     this.panierService.setPanier(JSON.stringify(this.data));
+  }
+
+  commander(){
+    const success = (response:any)=>{
+      if (response.status == 200) {
+        this.tools.openSnackBar("Commande effectuée","OK");
+      }
+      this.loading = false;
+    }
+
+    const error = (response:any)=>{
+      console.log(response);
+      this.tools.openSnackBar("Erreur durant la commande","OK");
+      this.loading = false;
+    }
+    this.loading = true;
+    const { user_id,plat_id,qte,montant,lieudelivraison } = this.data;
+    console.log(this.data);
+    
+    console.log({
+      user_id:user_id,
+      plat_id:plat_id,
+      qte:qte,
+      montant:montant,
+      lieudelivraison:lieudelivraison
+    });
+    
+
+    this.commandeService.insertCommade({
+      data:this.data
+    }).subscribe(success,error);
   }
 
 

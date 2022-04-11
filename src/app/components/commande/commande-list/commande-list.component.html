@@ -7,7 +7,7 @@
             <h2 *ngIf="data.length==0">Panier vide</h2>
             <h2 *ngIf="data.length!=0">Panier </h2>
         </div>
-        <div class="separate"></div>
+        <div class="separate"></div>    
 
         <div *ngIf="loading" class="spinn-content">
             <div class="spinner-border  spinn" role="status">
@@ -60,14 +60,11 @@
                           <td>{{toMoney(item.prix)}}</td>
                           <td>{{item.qte}}</td>
                           <td>{{toMoney(item.montant)}}</td>
-                          <td>
-                              <mat-icon class="delete" (click)="delete(i)">delete</mat-icon>
-                          </td>
                         </tr>
                       </tbody>
                 </table>
                 <div class="button">
-                    <button class="btn btn-success" (click)="commander()">Commander</button>
+                    <button class="btn btn-success" >Commander</button>
                 </div>
             </div>
         </div>

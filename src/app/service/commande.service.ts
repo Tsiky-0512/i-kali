@@ -16,6 +16,6 @@ export class CommandeService {
 
   insertCommade(data:any){
     const options = this.tools.formOptionJSON(true);
-    return this.http.post(api+'/commande',data,options);
+    return this.http.post(api+'/commande/multiple',data,options);
   }
 }

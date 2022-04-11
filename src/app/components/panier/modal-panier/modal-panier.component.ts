@@ -34,37 +34,7 @@ export class ModalPanierComponent implements OnInit {
      this.montant = this.qte*this.data.prix;
   }
 
-  commander(){
-    const success = (response:any)=>{
-      if (response.status == 200) {
-        this.tools.openSnackBar("Plats crée","OK");
-        console.log(response);
-        
-        console.log(JSON.stringify(response.data));
-        
-      }
-      this.loading = false;
-    }
-
-    const error = (response:any)=>{
-      console.log(response);
-      this.tools.openSnackBar("Erreur d'inscription","OK");
-      this.loading = false;
-    }
-    this.loading = true;
-   
-      const data = {
-        plat_id:this.data._id,
-        qte:this.qte,
-        montant:this.montant,
-        lieudelivraison:this.lieu,
-        ...this.data
-      } 
-      
-    console.log(data);
-    
-    this.commandeService.insertCommade(data).subscribe(success,error);
-  }
+  
 
 
   ajouterPanier(){
@@ -76,21 +46,16 @@ export class ModalPanierComponent implements OnInit {
       
       panier = JSON.parse(cookie);
     } 
-    console.log({
-      plat_id:this.data._id,
-      qte:this.qte,
-      montant:this.montant,
-      lieudelivraison:this.lieu
-    });
-    
+    const userLocal = JSON.parse(""+localStorage.getItem('user'));
     panier.push({
       plat_id:this.data._id,
       qte:this.qte,
       montant:this.montant,
       lieudelivraison:this.lieu,
+      user_id:userLocal._id,
       ...this.data
     });   
     this.panierService.setPanier(JSON.stringify(panier));
-    
+    this.dialogRef.close();
   }
 }

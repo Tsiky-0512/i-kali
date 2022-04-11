@@ -24,6 +24,7 @@ import { ListePlatComponent } from './components/plats/liste-plat/liste-plat.com
 import { UpdatePlatComponent } from './components/plats/update-plat/update-plat.component';
 import { ModalPanierComponent } from './components/panier/modal-panier/modal-panier.component';
 import { ListPanierComponent } from './components/panier/list-panier/list-panier.component';
+import { CommandeListComponent } from './components/commande/commande-list/commande-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ListPanierComponent } from './components/panier/list-panier/list-panier
     UpdatePlatComponent,
     ModalPanierComponent,
     ModalPanierComponent,
-    ListPanierComponent
+    ListPanierComponent,
+    CommandeListComponent
   ],
   imports: [
     BrowserModule,
