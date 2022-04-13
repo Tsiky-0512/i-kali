@@ -44,7 +44,7 @@ export class NavigationComponent implements OnInit {
 
   logOut(){
     this.tools.logOut();
-    this.router.navigate(['/router-handler']);
+    this.router.navigate(['/routerHandler']);
   }
 
 }

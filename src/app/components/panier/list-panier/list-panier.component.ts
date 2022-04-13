@@ -51,6 +51,9 @@ export class ListPanierComponent implements OnInit {
   commander(){
     const success = (response:any)=>{
       if (response.status == 200) {
+        localStorage.setItem('panier',JSON.stringify([]));
+        this.data = [];
+        this.router.navigate(['/client/liste-commande']);
         this.tools.openSnackBar("Commande effectuée","OK");
       }
       this.loading = false;
@@ -61,19 +64,7 @@ export class ListPanierComponent implements OnInit {
       this.tools.openSnackBar("Erreur durant la commande","OK");
       this.loading = false;
     }
-    this.loading = true;
-    const { user_id,plat_id,qte,montant,lieudelivraison } = this.data;
-    console.log(this.data);
-    
-    console.log({
-      user_id:user_id,
-      plat_id:plat_id,
-      qte:qte,
-      montant:montant,
-      lieudelivraison:lieudelivraison
-    });
-    
-
+    this.loading = true;  
     this.commandeService.insertCommade({
       data:this.data
     }).subscribe(success,error);
